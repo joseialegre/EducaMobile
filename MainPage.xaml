@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Label Text="Inicio de Sesion" HorizontalOptions="CenterAndExpand"  />
+
+            <Entry Placeholder="Usuario/Email" WidthRequest="150" HorizontalOptions="FillAndExpand" x:Name="entryUsername"/>
+            <Entry Placeholder="Contraseña" WidthRequest="150" HorizontalOptions="FillAndExpand" x:Name="entryPassword" IsPassword="true"/>
+            <Button Text="Iniciar Sesion" WidthRequest="150" HorizontalOptions="FillAndExpand" x:Name="btnIniciarSesion" Clicked="OnIniciarSesionClicked" />
+            <Button Text="tester" WidthRequest="150" HorizontalOptions="FillAndExpand" x:Name="tester" Clicked="testerconnection" />
+            <Button Text="theme" WidthRequest="150" HorizontalOptions="FillAndExpand" x:Name="theme" Clicked="changetheme" />
+            
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MateriasAlumno"
+             Title="Tus Materias">
+    <ContentPage.Content>
+        <ListView x:Name="materiasListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding NombreMateria}" />
+                            <Label Text="{Binding DescripcionMateria}" />
+                            <!-- Agrega otros controles para mostrar más propiedades de materia si es necesario -->
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
