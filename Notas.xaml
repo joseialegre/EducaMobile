@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Notas"
+             Title="Notas">
+    <StackLayout>
+        <!-- Picker para seleccionar el trimestre -->
+        <Picker x:Name="trimestrePicker" Title="Seleccionar Trimestre" SelectedIndexChanged="TrimestrePicker_SelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Trimestre 1</x:String>
+                    <x:String>Trimestre 2</x:String>
+                    <x:String>Trimestre 3</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <!-- Label para mostrar el valor actual del trimestre seleccionado -->
+        <Label x:Name="notaLabel" Text="" />
+
+        <!-- Picker para seleccionar el número del 1 al 10 -->
+        <Picker x:Name="numeroPicker" Title="Seleccionar Número">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>1</x:Int32>
+                    <x:Int32>2</x:Int32>
+                    <x:Int32>3</x:Int32>
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>5</x:Int32>
+                    <x:Int32>6</x:Int32>
+                    <x:Int32>7</x:Int32>
+                    <x:Int32>8</x:Int32>
+                    <x:Int32>9</x:Int32>
+                    <x:Int32>10</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <!-- Botón para guardar la modificación -->
+        <Button Text="Guardar" Clicked="Guardar_Clicked" />
+        <Button Text="Volver" Clicked="VolverAtras_Clicked" />
+    </StackLayout>
+
+</ContentPage>
