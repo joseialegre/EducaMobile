@@ -8,7 +8,7 @@ public partial class MenuProfesor : ContentPage
 	{
 		InitializeComponent();
 
-        MateriasProfesor MateriasProfesor = new MateriasProfesor(conexion, userId);
+        MateriasProfesor MateriasProfesor = new MateriasProfesor(userId);
         ShellContent Materias = new ShellContent
         {
             Title = "Materias",

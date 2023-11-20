@@ -6,10 +6,18 @@ namespace MauiApp1;
 
 public partial class MateriasProfesor : ContentPage
 {
+    static string servidor = "127.0.0.1";
+    static string bd = "mobile";
+    static string user = "root";
+    static string password = "root";
+    static string puerto = "3306";
+
+    string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + user + ";" + "Password=" + password + ";" + "Database=" + bd + ";SSL Mode =None";
+
     MySqlConnection conexion;
     int DNI;
 
-    public MateriasProfesor(MySqlConnection conexion, int DNI)
+    public MateriasProfesor(int DNI)
 	{
 		InitializeComponent();
 
@@ -36,8 +44,9 @@ public partial class MateriasProfesor : ContentPage
     public List<DocenteMateria> ObtenerMateriasPorDocente(int DNI)
     {
         List<DocenteMateria> materiasPorDocente = new List<DocenteMateria>();
-        using (conexion)
+        using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
         {
+            conexion.Open();
 
             string query = "SELECT materia.id, materia.nombre, materia.descripcion " +
                 "FROM materia " +
@@ -74,6 +83,9 @@ public partial class MateriasProfesor : ContentPage
         return materiasPorDocente;
     }
 
+
+    
+    int idmateria;
     private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         if (e.SelectedItem == null)
@@ -84,10 +96,18 @@ public partial class MateriasProfesor : ContentPage
 
         // Obtiene el elemento seleccionado del ListView
         var selectedMateria = (DocenteMateria)e.SelectedItem;
-        int idmateria = selectedMateria.MateriaId;
+        idmateria = selectedMateria.MateriaId;
         // Navega a la nueva página pasando el objeto seleccionado como parámetro
-        Navigation.PushAsync(new AlumnoMateria(idmateria,DNI));
 
-        //Navigation.PushAsync(new MenuProfesor(conexion, DNI));
+
+        //Navigation.PushAsync(new AlumnoMateria2(idmateria,DNI));
+
+        Navigation.PushAsync(new AlumnoMateria(idmateria, DNI));
+
+
+    }
+    private void irOtraPagina(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AlumnoMateria(idmateria, DNI));
     }
 }

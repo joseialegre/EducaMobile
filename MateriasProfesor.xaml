@@ -4,6 +4,7 @@
              x:Class="MauiApp1.MateriasProfesor"
              Title="MateriasProfesor">
     <ContentPage.Content>
+        <StackLayout>
         <ListView x:Name="materiasListView" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -17,5 +18,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

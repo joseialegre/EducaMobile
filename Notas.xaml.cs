@@ -114,10 +114,12 @@ public partial class Notas : ContentPage
             {
                 ActualizarNotaEnBaseDeDatos(notaSeleccionada, trimestreSeleccionado);
                 DisplayAlert("Datos Guardados", $"Trimestre: {trimestreSeleccionado}\nNota: {notaSeleccionada}", "OK");
+                Navigation.PopAsync();
             }
             catch (Exception ex)
             {
                 DisplayAlert("Error", "Error al guardar la nota.", "OK");
+
             }
         }
         catch(Exception ex)
@@ -125,15 +127,6 @@ public partial class Notas : ContentPage
 
             DisplayAlert("Error", "Por favor selecciona la nota", "OK");
         }
-
-        // Aquí puedes realizar las operaciones necesarias con los datos
-        // Por ejemplo, puedes mostrar un mensaje con los datos seleccionados/modificados
-
-
-        // Aquí deberías actualizar la base de datos con la nota seleccionada
-        // Utiliza tu lógica específica para interactuar con la base de datos
-        
-
 
     }
     private void ActualizarNotaEnBaseDeDatos(int nota, string trimestre)
@@ -168,12 +161,15 @@ public partial class Notas : ContentPage
             }
         }
         ObtenerNotaDesdeBaseDeDatos(out notaTrimestre1, out notaTrimestre2, out notaTrimestre3);
+
     }
+
+
     private void VolverAtras_Clicked(object sender, EventArgs e)
     {
         try
         {
-            Navigation.PopAsync();
+            Navigation.PushAsync(new MateriasProfesor(profeDNI));
         }
         catch (Exception ex)
         {

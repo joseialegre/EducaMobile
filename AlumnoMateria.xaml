@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Button Text="Guardar" Clicked="irOtraPagina" />
+            
 
         <ListView x:Name="alumnosListView" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
@@ -22,6 +22,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

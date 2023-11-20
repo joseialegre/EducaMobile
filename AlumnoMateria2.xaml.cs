@@ -1,10 +1,7 @@
-
-using System.Net;
 using MySqlConnector;
-
 namespace MauiApp1;
 
-public partial class AlumnoMateria : ContentPage
+public partial class AlumnoMateria2 : ContentPage
 {
     static string servidor = "127.0.0.1";
     static string bd = "mobile";
@@ -15,16 +12,13 @@ public partial class AlumnoMateria : ContentPage
     string cadenaConexion = "Server=" + servidor + ";" + "Port=" + puerto + ";" + "User Id=" + user + ";" + "Password=" + password + ";" + "Database=" + bd + ";SSL Mode =None";
 
 
-    Notas notasPage;
-    Notas2xaml notasPage2;
-
-    //MySqlConnection conexion;
     int materiaId;
     int profeDNI;
-    public AlumnoMateria(int materiaId, int profeDNI)
-    {
-        InitializeComponent();
-        //this.conexion = conexion;
+
+
+    public AlumnoMateria2(int materiaId, int profeDNI)
+	{
+		InitializeComponent();
         this.materiaId = materiaId;
 
         var alumnos = ObtenerAlumnosPorMateria(materiaId);
@@ -76,13 +70,9 @@ public partial class AlumnoMateria : ContentPage
             }  // La conexión se cerrará automáticamente al salir del bloque using MySqlCommand
             conexion.Close();
         }  // La conexión se cerrará automáticamente al salir del bloque using MySqlConnection
-        
+
         return alumnosPorMateria;
     }
-
-
-
-    int dnialumno = 0;
     private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         if (e.SelectedItem == null)
@@ -93,18 +83,17 @@ public partial class AlumnoMateria : ContentPage
 
         // Obtiene el elemento seleccionado del ListView
         var selectedAlumno = (AlumnoenMateria)e.SelectedItem;
-        dnialumno = selectedAlumno.AlumnoDNI;
+        int dnialumno = selectedAlumno.AlumnoDNI;
 
+        // Navega a la nueva página pasando el objeto seleccionado como parámetro
 
-
-        //Navigation.PushAsync(new Notas(dnialumno, materiaId, profeDNI, Navigation));
         Navigation.PushAsync(new Notas(dnialumno, materiaId, profeDNI, Navigation));
 
     }
     private void irOtraPagina(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Notas(dnialumno, materiaId, profeDNI, Navigation));
+        Notas notasPage;
+        Notas2xaml notasPage2;
 
     }
-
 }
