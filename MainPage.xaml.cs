@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.ApplicationModel;
+﻿using MauiApp1.Clases;
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 
 using MySqlConnector;
@@ -41,7 +42,7 @@ public partial class MainPage : ContentPage
 
 
 
-        using var conexion = new MySqlConnection(cadenaConexion);
+        using var conexion = new MySqlConnection(Conexion.cadenaConexion);
         {
             conexion.Open();
 

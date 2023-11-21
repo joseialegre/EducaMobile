@@ -1,5 +1,7 @@
 
 using System.Net;
+using MauiApp1.Clases;
+using Microsoft.Maui.Controls;
 using MySqlConnector;
 
 namespace MauiApp1;
@@ -46,11 +48,12 @@ public partial class AlumnoMateria : ContentPage
     {
         List<AlumnoenMateria> alumnosPorMateria = new List<AlumnoenMateria>();
 
-        using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+        using (MySqlConnection conexion = new MySqlConnection(Conexion.cadenaConexion))
         {
-            string query = "SELECT alumno.Nombre, alumno.Apellido, alumno.Legajo, alumno.DNI " +
-                "FROM alumno RIGHT JOIN alumno_has_materia ON alumno_has_materia.alumno_DNI = alumno.DNI " +
-                "WHERE alumno_has_materia.materia_id = @materiaId";
+            string query = "Select alumno.Nombre, alumno.Apellido, alumno.Legajo " +
+                "FROM alumno " +
+                "join alumno_has_materia1 ON alumno.DNI = alumno_has_materia1.alumno_DNI " +
+                "where alumno_has_materia1.materia_id = 1";
 
             using (MySqlCommand command2 = new MySqlCommand(query, conexion))
             {
@@ -64,7 +67,7 @@ public partial class AlumnoMateria : ContentPage
                     {
                         var AlumnoenMateria = new AlumnoenMateria
                         {
-                            AlumnoDNI = reader2.GetInt32("DNI"),
+                            //AlumnoDNI = reader2.GetInt32("DNI"),
                             AlumnoLegajo = reader2.GetInt32("legajo"),
                             AlumnoNombre = reader2.GetString("nombre"),
                             AlumnoApellido = reader2.GetString("apellido")

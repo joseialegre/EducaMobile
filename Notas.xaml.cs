@@ -75,7 +75,7 @@ public partial class Notas : ContentPage
         notaTrimestre1 = 0;
         notaTrimestre2 = 0;
         notaTrimestre3 = 0;
-        using (MySqlConnection connection = new MySqlConnection(cadenaConexion))
+        using (MySqlConnection connection = new MySqlConnection(Conexion.cadenaConexion))
         {
             connection.Open();
 
@@ -131,7 +131,7 @@ public partial class Notas : ContentPage
     }
     private void ActualizarNotaEnBaseDeDatos(int nota, string trimestre)
     {
-        using (MySqlConnection connection = new MySqlConnection(cadenaConexion))
+        using (MySqlConnection connection = new MySqlConnection(Conexion.cadenaConexion))
         {
             connection.Open();
 

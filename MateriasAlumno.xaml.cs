@@ -6,6 +6,7 @@ namespace MauiApp1;
 
 public partial class MateriasAlumno : ContentPage
 {
+
     MySqlConnection conexion;
     int userId;
 

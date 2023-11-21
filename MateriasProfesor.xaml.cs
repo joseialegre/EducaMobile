@@ -44,7 +44,7 @@ public partial class MateriasProfesor : ContentPage
     public List<DocenteMateria> ObtenerMateriasPorDocente(int DNI)
     {
         List<DocenteMateria> materiasPorDocente = new List<DocenteMateria>();
-        using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+        using (MySqlConnection conexion = new MySqlConnection(Conexion.cadenaConexion))
         {
             conexion.Open();
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ListadoMateria"
+             Title="Materias">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="materiasListView" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="1" >
+                                <Label Text="{Binding NombreMateria}" />
+                                <Label Text="{Binding DescripcionMateria}" />
+                                <Label Text="{Binding HorarioMateria}" />
+                                <Label Text="{Binding AulaMateria}" />
+                                <!-- Agrega otros controles para mostrar más propiedades de materia si es necesario -->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

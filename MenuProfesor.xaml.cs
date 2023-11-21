@@ -9,13 +9,21 @@ public partial class MenuProfesor : ContentPage
 		InitializeComponent();
 
         MateriasProfesor MateriasProfesor = new MateriasProfesor(userId);
+        ListadoCurso listadoCurso = new ListadoCurso(userId);
         ShellContent Materias = new ShellContent
         {
-            Title = "Materias",
+            Title = "Notas",
             Content = MateriasProfesor,
             Route = "MateriasProfesor"
         };
         Shell.Current.Items.Add(Materias);
+        ShellContent Cursos = new ShellContent
+        {
+            Title = "Cursos",
+            Content = listadoCurso,
+            Route = "ListadoCurso"
+        };
+        Shell.Current.Items.Add(Cursos);
 
     }
 
